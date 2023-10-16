@@ -1,44 +1,71 @@
 :: StoryTitle
-Ritual
+Random
 
 
 :: StoryData
 {
-  "ifid": "AA525EDA-B205-4D8A-BF8C-41595858D505",
+  "ifid": "2AD118CE-539E-4F88-86BA-8FE5858B5586",
   "format": "Harlowe",
   "format-version": "3.3.7",
-  "start": "In the Truck",
-  "tag-colors": {
-    "startup": "red"
-  },
-  "zoom": 0.6
+  "start": "Beginning ",
+  "zoom": 1
 }
 
 
-:: BestBuy {"position":"525,125","size":"100,100"}
-In the store there is alot of other items but you are only here for Computers 
-
-On my check of the store this morning I stolen, $Computers amount of computers and put them in my [[Truck]] 
-
-(if:$Computers>= 4)[The police show up and you never escape. THE END?]
+:: \ New Resturant {"position":"575,425","size":"100,100"}
+The food at this resturant is Amazing, I met with the head chef right after my food.
 
 
-:: In the Truck {"position":"325,75","size":"100,100"}
-It is 12 in the morning at bestbuy, looking for the best Computers to put in my truck.
+:: \ Old Resturant {"position":"375,675","size":"100,100"}
+The food is not the same, Damn them new cooks!!
 
 
-[[ Enter the store?->BestBuy]]
+:: 20 years {"position":"375,275","size":"100,100"}
+(if: $random2 is 1)[ I will head to the [[ New Resturant]] during my break from work.]
+(elseif: $random2 is 2)[I am going to the [[House]] to drop off the kids. ]
 
 
-:: Startup [startup] {"position":"650,200","size":"100,100"}
+:: 40 years {"position":"175,500","size":"100,100"}
+(if: $random3 is 1)[ I will be forced into a [[Retirement home]] by the kids you love ]
+(elseif: $random3 is 2)[I am going to the [[ Old Resturant]] you have been to for the past 20 years]
+
+
+:: 5 years {"position":"275,25","size":"100,100"}
+
+(if: $random1 is 1)[I am going to the [[Bar]] tonight.]
+
+(elseif: $random1 is 2)[ I will go to the [[Beach]] for the day.]
+
+
+:: Bar {"position":"500,125","size":"100,100"}
+Drinks at the bar
+
+
+:: Beach {"position":"625,0","size":"100,100"}
+A very sunny day on the beach 
+
+
+:: Beginning\  {"position":"75,275","size":"100,100"}
+Jorge in [[5 years]]
+
+Jorge in [[20 years]]
+
+Jorge in [[40 years]]
+
+
+:: House {"position":"650,300","size":"100,100"}
+Your house is surprisly not on fire. You can say (text-rotate-x:47)[it was a good day]. 
+
+
+:: Retirement home {"position":"450,525","size":"100,100"}
+Not too fun here
+
+
+:: Start [startup] {"position":"25,525","size":"100,100"}
 {
-(set: $Computers to 0)
+
+(set: $random1 to (random: 1, 2))
+(set: $random2 to (random: 1, 2)) 
+(set: $random3 to (random: 1, 2))
+
 }
-
-
-:: Truck {"position":"525,325","size":"100,100"}
-You succeed in grabing a computer 
-
-You now have to back into [[BestBuy]] 
-
-(set: $Computers to it +1) 
